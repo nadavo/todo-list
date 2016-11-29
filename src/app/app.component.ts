@@ -9,8 +9,8 @@ import { Component } from '@angular/core';
     <h4>
       {{subtitle}}
     </h4>
-    <todo-input>
-    </todo-input>
+    <todo-input></todo-input>
+    <todo-table></todo-table>
   `,
   styleUrls: ['./app.component.css']
 })
