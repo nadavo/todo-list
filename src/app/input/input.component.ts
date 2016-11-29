@@ -18,7 +18,9 @@ import { Component, OnInit } from '@angular/core';
 })
 /*export our new component class to be used in our app*/
 export class InputComponent implements OnInit {
+
   private title: string = '';
+
   changeTitle(newTitle:string): void {
     this.title = newTitle;
   }

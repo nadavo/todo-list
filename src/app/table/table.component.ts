@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'todo-table',
@@ -7,18 +7,19 @@ import { Component, OnInit } from '@angular/core';
       Todo List:
     </h2>
     <ul>
-      <li *ngFor="let item of list">{{item.name}}</li>
+      <li *ngFor="let item of list" (click)="onItemClick($event)">{{item.name}}</li>
     </ul>
   `,
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
+  onItemClick(e){
+    console.log('Item Clicked');
+    this.itemClick.emit({type: 'click', originalEvent: e});
+  }
 
-  private list = [
-    {name: 'One'},
-    {name: 'Two'},
-    {name: 'Three'}
-  ];
+  @Input() list;
+  @Output() itemClick: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 

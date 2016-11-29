@@ -7,14 +7,17 @@ import { Component } from '@angular/core';
       {{title}}
     </h1>
     <h4>
-      {{subtitle}}
+      {{sub_title}}
     </h4>
     <todo-input></todo-input>
-    <todo-table></todo-table>
+    <todo-table (itemClick)="onItemClick($event)" ></todo-table>
   `,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  onItemClick(e){
+    console.log('Event caught', e);
+  }
   private title: string = 'Nadav\'s To-do List';
-  private subtitle: string = 'Built with Angular 2';
+  private sub_title: string = 'Built with Angular 2';
 }
