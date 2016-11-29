@@ -2,9 +2,19 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  templateUrl: `
+    <h1>
+      {{title}}
+    </h1>
+    <h4>
+      {{subtitle}}
+    </h4>
+    <todo-input>
+    </todo-input>
+  `,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Nadav\'s To-do List';
+  private title: string = 'Nadav\'s To-do List';
+  private subtitle: string = 'Built with Angular 2';
 }

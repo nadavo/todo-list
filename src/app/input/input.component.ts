@@ -7,17 +7,30 @@ import { Component, OnInit } from '@angular/core';
   /*backticks allow multi-line code*/
   template: `
     <h2>
-      input Works!
+      {{title}}
     </h2>
+    <input [value]="inputTextGenerator()" (keyup)="changeTitle($event.target.value)" >
+    <button (click)="changeTitle('Save Button Clicked!')">
+    Save
+    </button>
   `,
   styleUrls: ['./input.component.css']
 })
 /*export our new component class to be used in our app*/
 export class InputComponent implements OnInit {
-/*initialize primitives for this class in constructor, not logic*/
-  constructor() { }
-/*runs each time this component is created*/
-  ngOnInit() {
+  private title: string = '';
+  changeTitle(newTitle:string): void {
+    this.title = newTitle;
   }
-
+  /*initialize primitives for this class in constructor, not logic*/
+  constructor() {
+    console.log('constructing InputComponent');
+    this.changeTitle('Input Component Works!');
+    console.log('title should be: Input Component Works!');
+  }
+/*runs each time this component is created*/
+  ngOnInit() {}
+  inputTextGenerator(){
+    return 'Add a task here';
+  }
 }
