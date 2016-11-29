@@ -9,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
     <h2>
       {{title}}
     </h2>
-    <input [placeholder]="inputTextGenerator()" (keyup)="changeTitle($event.target.value)" >
-    <button (click)="changeTitle('Save Button Clicked!')">
+    <input [placeholder]="inputTextGenerator()" (keyup)="changeTitle($event.target.value)" #myInput>
+    <button (click)="changeTitle(myInput.value + ' - Save Button Clicked!')">
     Save
     </button>
   `,
